@@ -14,4 +14,11 @@ function loan() {
     defaltsToForeclose: 5,
     foreclosed: false
   };
+
+  function missPayment() {
+    _account.defaulted++;
+    if (_account.defaulted >= _account.defaltsToForeclose) {
+      _account.foreclosed = true;
+    }
+  }
 }
