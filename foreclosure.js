@@ -89,5 +89,13 @@ while (!stevesLoan.isForeclosed()) {
   steve.payDay();
   steve.makePayment();
   month++;
+
+  if (stevesLoan.getBalance() <= 0) {
+    break;
+  }
+
 }
-monthsUntilEvicted = month;
+
+if (stevesLoan.getBalance > 0) {
+  monthsUntilEvicted = month;
+}
