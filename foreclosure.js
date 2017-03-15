@@ -56,4 +56,23 @@ function borrower(loan) {
     loan: loan
   };
 
+  var getFunds = function() {
+    return account.funds;
+  }
+
+  var makePayment = function() {
+    if (account.funds > loan.getMonthlyPayment()) {
+      account.funds -= loan.getMonthlyPayment();
+      loan.receivePayment(loan.getMonthlyPayment());
+    }
+    else {
+      loan.receivePayment(account.funds);
+      account.funds = 0;
+    }
+  };
+
+  var payDay = function() {
+    account.funds += account.monthlyIncome;
+  };
+
 }
