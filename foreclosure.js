@@ -15,12 +15,12 @@ function loan() {
     foreclosed: false
   };
 
-  function missPayment() {
+  var missPayment = function() {
     account.defaulted++;
     if (account.defaulted >= account.defaltsToForeclose) {
       account.foreclosed = true;
     }
-  }
+  };
 
   var getBalance = function() {
     return account.balance;
