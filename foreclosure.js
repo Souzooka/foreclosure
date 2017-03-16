@@ -11,13 +11,13 @@ function loan() {
     balance: 286000,
     monthlyPayment: 1700,
     defaulted: 0,
-    defaltsToForeclose: 5,
+    defaultsToForeclose: 5,
     foreclosed: false
   };
 
   var missPayment = function() {
     account.defaulted++;
-    if (account.defaulted >= account.defaltsToForeclose) {
+    if (account.defaulted >= account.defaultsToForeclose) {
       account.foreclosed = true;
     }
   };
@@ -90,12 +90,8 @@ while (!stevesLoan.isForeclosed()) {
   steve.makePayment();
   month++;
 
-  if (stevesLoan.getBalance() <= 0) {
-    break;
-  }
-
 }
 
-if (stevesLoan.getBalance > 0) {
+if (stevesLoan.isForeclosed() > 0) {
   monthsUntilEvicted = month;
 }
