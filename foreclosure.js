@@ -96,6 +96,6 @@ while (!stevesLoan.isForeclosed()) {
 
 }
 
-if (stevesLoan.isForeclosed() > 0) {
+if (stevesLoan.isForeclosed()) {
   monthsUntilEvicted = month;
 }
