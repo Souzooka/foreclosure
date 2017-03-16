@@ -90,6 +90,10 @@ while (!stevesLoan.isForeclosed()) {
   steve.makePayment();
   month++;
 
+  if (stevesLoan.getBalance() <= 0) {
+    break;
+  }
+
 }
 
 if (stevesLoan.isForeclosed() > 0) {
